@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <div>
+            <ul>
+                <li id="thirst">TO DO LIST </li><br>
+                <li><a href="{{url_for('home')}}">ADD </a></li>
+                <li><a href="{{url_for('List')}}">LIST</a> </li>
+            </ul>
+        </div>
+        <div>
+          {% block content %}
+
+          {% endblock %}
+        </div>
+
+    </div>
+    <div>
+        
+        {%block list %}
+        <h1>last updates</h1>
+        {%endblock%}
+    </div>
+</body>
+</html>
+<style>
+    *{
+        margin: 0px;
+        background: #000;
+        font: size 27px;;
+        text-align: center;
+        justify-content: center;
+        color: aliceblue;
+    }
+    ul,li{
+        margin-top: 15px;
+        display: inline; 
+        padding-left: 30px;
+    }
+    #thirst{
+        margin-top: 0px;
+background-color: aqua;
+float: left;
+font-size: 3rem;
+padding: 0px;
+    }
+    a{
+    text-decoration: none;
+    border: white 3px solid;
+    padding:10px;
+    justify-items: normal;
+      }
+      button{
+        padding: 10px;
+        border:navy 3px solid;
+      }
+#add{
+    margin-top: 50px;
+    float: left;
+        width: 40%;
+        height: 400px;
+        border: rgb(0, 55, 255) 3px solid;
+        text-align: center;
+        justify-content: center;
+}
+
+      #list{
+     margin-top: 25px;
+        float: right;
+        width: 40%;
+        height: 400px;
+        border: rebeccapurple 3px solid;
+        scrollbar-width: 5px;
+      }
+      label{
+       margin-top: 20px;
+      }
+      div{
+        margin-top: 20px;
+      }
+      input{
+        margin-top: 10px;
+        width: 80%;
+        height: 30px;
+        background-color: white;
+        color: #000;
+      }
+      textarea{
+        margin-top: 10px;
+        width: 80%;
+        height: 200px;
+        background-color: white;
+        color: #000;
+      }
+
+      #list,li{
+       text-align: left;
+      }
+</style>

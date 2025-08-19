@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+
+{%block title%}add item{% endblock %}
+
+
+
+<div id="openblock">
+    {% block content %}
+   <form method="POST" action="/home" id="add">
+    <div>
+        <label>Title of the Item</label><br>
+        <input type="text" name="title" id="title" required>
+<br>
+        <label>Content of the Item</label><br>
+        <textarea name="content" id="content" required></textarea>
+    </div>
+    <div>
+        <button type="submit" name="action" value="add">Add to list</button>
+        <button type="submit" name="action" value="view">List of items</button>
+    </div>
+</form>
+
+    {% endblock %}
+{%block list %} 
+
+    <h2>Current Items:</h2>
+   <form  method="post" id="list">
+     <ul>
+        {% for item in list %}
+        <fieldset>
+           <li><strong>{{ item.Title }}</strong>
+             {{ item.discrption }}
+            
+              <button type="submit" name = "fin" value="{{loop.index0}}">finish</button>
+              <button name="delete" value="{{loop.index0}}">delete </button>
+        </fieldset>
+        </li>
+        {% endfor %}
+    </ul>
+    </form>
+    {%endblock%}
+</div>

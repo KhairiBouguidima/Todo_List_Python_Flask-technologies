@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{%block title%}list item{% endblock %}
+
+{%block list %} 
+
+   <form  method="post" id="list">
+      <h3> Item</h3>
+     <ul>
+        {% for item in list %}
+        <fieldset>
+           <li><strong>{{ item.Title }}</strong>
+             {{ item.discrption }}
+            
+              <button type="submit" name = "fin" value="{{loop.index0}}">finish</button>
+              <button name="delete" value="{{loop.index0}}">delete </button>
+        </fieldset>
+        </li>
+        {% endfor %}
+    </ul>
+    </form>
+    {%endblock%}
+
+     {% block content %}
+   <form method="POST" action="/List" id="add">
+    <h3> Finished Items</h3>
+       <ul>
+        {% for item in fin %}
+        <fieldset>
+           <li><strong>{{ item.Title }}</strong>
+             {{ item.discrption }}
+            <button name="delete" value="{{loop.index0}}">delete </button>
+        </fieldset>
+        </li>
+        {% endfor %}
+    </ul>
+</form>
+{%endblock%}
